@@ -1,0 +1,49 @@
+<!-- Edit playlist page -->
+<!-- Check if there are tracks present in the playlist -->
+<div *ngIf="tracks?.length>1; else elseBlock">
+  <br>
+  <br>
+  <div style="padding-bottom:10px">
+    <!-- Buttons to manage Playlist -->
+    <button class="btn-outline-primary" routerLink="/search" style="border-radius:10%">Add More Tracks</button>
+    <button class="btn-outline-primary" style="border-radius:10%" (click)="deletePlaylist()">Delete Playlist</button>
+  </div>
+  <br>
+  <br>
+  <!-- Display tracks of Playlist -->
+  <div *ngFor="let track of tracks.slice(1)">
+    <div id="scrollableDiv" style=" width:100%;">
+      <h4>
+        <img src="{{track.album.images[0].url}}" height="50px" width="50px">
+        <a routerLink='/track/{{track.id}}' style="padding-left:10px">{{track.name}}</a>
+      </h4>
+      <div>
+        <strong>Artist:</strong>
+        <span>{{track.artists[0].name}}</span>
+        <strong>Popularity:</strong>
+        <span>{{track.popularity}}</span>
+        <strong>Album:</strong>
+        <span>{{track.album.name}}</span>
+        <span class="pull-right">
+          <!-- Delete track from Playlist -->
+          <button class="btn-outline-primary" style="border-radius:10%" label="Delete From Playlist" (click)="deleteTrack(track)">Delete from Playlist</button>
+        </span>
+        <hr>
+      </div>
+    </div>
+  </div>
+  <button class="btn-outline-primary" style="border-radius:10%" (click)="goBack()">Back</button>
+
+
+
+
+</div>
+
+<!-- If no tracks found in Playlist displaying below content -->
+<ng-template #elseBlock>
+  <div class="hero-text">
+    <h2>Your Playlist is Empty!!</h2>
+    <br>
+    <button class="btn-outline-primary" routerLink="/search" style="border-radius:8%">Create Playlist</button>
+  </div>
+</ng-template>

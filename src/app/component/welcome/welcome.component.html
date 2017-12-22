@@ -1,0 +1,29 @@
+<!-- Welcome Page -->
+<!-- Check if user is logged in -->
+<div *ngIf="user">
+  <div class="bg-transparent text-center">
+    <div *ngIf="user">
+      <div class="card-block"></div>
+      <img class=" card-img-top img-responsive photo" src="{{ user.photoUrl }}">
+      <div class="card-block">
+        <h4 class="card-title">{{ user.name }}</h4>
+        <p class="card-text">{{ user.email }}</p>
+      </div>
+    </div>
+    <h2>Welcome to Rhythm Playlist Client!</h2>
+    <h1 style="font-size: 20px">Search your favourite songs and add them to your playlist.</h1>
+    <div style="padding-top:10px">
+      <button class="btn-outline-primary" routerLink="/search" style="border-radius:10%">Search tracks</button>
+    </div>
+  </div>
+</div>
+<!-- If user not signed in then provide login option -->
+<div *ngIf="!user">
+  <div class="hero-text">
+    <h1 style="font-size:100px;color: #6B7E9F;font-style: italic;">Rhythm</h1>
+    <p>Playlist Client</p>
+    <div *ngIf="!user">
+      <button routerLink='/login' class="btn btn-outline-secondary my-2 my-sm-0">Login</button>
+    </div>
+  </div>
+</div>

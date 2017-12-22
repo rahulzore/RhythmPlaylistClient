@@ -1,0 +1,29 @@
+<!-- View Playlist Page-->
+<!-- Checking if the Playlist is empty -->
+<div *ngIf="tracks?.length>1; else elseBlock">
+    <br>
+    <br>
+    <br>
+    
+    <div style="text-align: right">
+        <button class="btn-outline-primary" style="border-radius:10%" routerLink="/editplaylist">Edit Playlist</button>
+
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+    <!-- Preview track widget -->
+    <div *ngFor="let track of tracks.splice(1)">
+        <iframe [src]='sanitizer.bypassSecurityTrustResourceUrl(track.widgetURL)' width="100%" height="80" frameborder="0" allowtransparency="true"></iframe>
+        <br>
+    </div>
+</div>
+<!-- If playlist is empty performing and displaying below content -->
+<ng-template #elseBlock>
+    <div class="hero-text">
+        <h2>Your Playlist is Empty!!</h2>
+        <br>
+        <button class="btn-outline-primary" routerLink="/search" style="border-radius:8%">Create Playlist</button>
+    </div>
+</ng-template>

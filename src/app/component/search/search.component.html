@@ -1,0 +1,36 @@
+<!-- Search Songs Page -->
+<form>
+    <div class="form-group">
+        <input type="text" style="border-radius: 8px;" name="searchStrTrack" [(ngModel)]="searchStr" (keyup)="searchTracks()" class="form-control" placeholder="Search Track....">
+    </div>
+</form>
+<!-- Split Button to  sort search results -->
+<p-splitButton label="Sort Tracks" [model]="items" styleClass="ui-button-info" >Sort</p-splitButton>
+ <div id="scrollableDiv" style=" width:80%;"> 
+     <!-- Searching tracks as per the query provided -->
+<div *ngIf = "searchResTrack">
+        <div *ngFor = "let track of searchResTrack" >
+            
+            <div class="row">
+                   
+                <div class="col-md-12">
+                    <div class="search-res well" >
+                        
+                        <h4> <img src = "{{track.album.images[0].url}}" height="50px" width="50px"><a routerLink = '/track/{{track.id}}' style="padding-left:10px">{{track.name}}</a></h4>
+                        <div>
+                          
+                            <strong>Artist:</strong>
+                            <span>{{track.artists[0].name}}</span>
+                            <strong>Popularity:</strong>
+                            <span>{{track.popularity}}</span>
+                            <strong>Album:</strong>
+                            <span>{{track.album.name}}</span>
+                            <!-- Option to add to playlist -->
+                            <span  class="pull-right">
+                                    <button class="btn-outline-primary"  style="border-radius:10%" label="Add to Playlist" (click)="add(track.id, track.name, track.album, track.artists,track.popularity )">Add to Playlist</button>     
+                            </span>
+                            <hr style="margin-top: 30px">
+        </div>
+    </div>
+</div>
+

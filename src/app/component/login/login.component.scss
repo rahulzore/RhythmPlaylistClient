@@ -1,0 +1,39 @@
+// component with email and playlist
+
+.bg-transparent {
+    background-color: transparent;
+  }
+  
+  :host {
+    height: 100%;
+  }
+  
+  .photo {
+    object-fit: contain;
+  }
+  
+  .card {
+    width: 20rem;
+    margin: 0 auto;
+  }
+  .card-img-top{
+    border-radius: 100px;
+    margin-top: 100px;
+    height: 150px;
+    width: 150px;
+  }
+
+  .card-title{
+    margin-top: 20px;
+  }
+
+  .card-text{
+    margin-bottom: 20px;
+  }
+
+  .hero-text {
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    font-size: 20px;
+  }

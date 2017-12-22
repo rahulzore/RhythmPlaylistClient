@@ -1,0 +1,19 @@
+// Navbar at the top
+
+.navbar-nav, .navbar-brand {
+  padding-top: 0px !important;
+  padding-bottom: 0 !important;
+}
+
+// collapse when screen is small
+
+.collapse {
+  &.in {
+    display: block;
+  }
+  display: none;
+}
+
+.active {
+  text-align: center;
+}

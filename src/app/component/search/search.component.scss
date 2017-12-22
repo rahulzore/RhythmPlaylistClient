@@ -1,0 +1,41 @@
+
+// Makes the div with id #scrollableDiv, scroll on content exceeding 400px defined height
+
+#scrollableDiv{
+    padding: 10px;
+    position: absolute;
+  height: 400px;
+    overflow: auto;
+    overflow-x:hidden;
+    margin-top: 20px;
+}
+
+// sets width for scrollbar of div #scrollableDiv
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+// Sets color, border radius properties of scroll bar
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #5BC0DE; 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+// Sets scroll bar propeties when it's inactive
+::-webkit-scrollbar-thumb:window-inactive {
+	background:#5BC0DE; 
+}
+
+// Leaves a defined margin from page top to place the div
+.form-group{
+    margin-top: 20px;
+}

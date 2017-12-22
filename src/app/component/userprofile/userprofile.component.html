@@ -1,0 +1,22 @@
+<!-- User Profile Page -->
+<div class="bg-transparent text-center">
+  <div *ngIf="user">
+    <div class="card-block"></div>
+    <img class=" card-img-top img-responsive photo" src="{{ user.photoUrl }}">
+    <div class="card-block">
+      <h4 class="card-title">{{ user.name }}</h4>
+      <p class="card-text">{{ user.email }}</p>
+    </div>
+    <div style="padding-bottom:10px">
+      <!-- Buttons to route to create or view playlist -->
+      <ng-template #elseBlock>
+        <button class="btn-outline-primary" routerLink="/search" style="border-radius:10%">Add to Playlist</button>
+      </ng-template>
+      <div style="padding-top:10px">
+        <div *ngIf="tracks?.length>1; else elseBlock">
+          <button class="btn-outline-primary" routerLink="/playlist" style="border-radius:10%">View Playlist</button>
+        </div>
+
+      </div>
+    </div>
+  </div>

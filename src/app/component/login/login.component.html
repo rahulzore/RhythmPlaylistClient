@@ -1,0 +1,23 @@
+<!-- Login Page -->
+<div class="bg-transparent text-center hero-text">
+  <!-- Checking if any user is signed in -->
+    <div *ngIf="!user" >
+        <h4 class="card-title">Not signed in</h4>
+        <!-- If no user found providing sign-in options -->
+        <p class="card-text">Sign in with</p>
+      <div class="card-block" >
+        <button class="btn btn-social-icon btn-google" (click)="signInWithGoogle()"><span class="fa fa-google"></span></button>
+        <button class="btn btn-social-icon btn-facebook" (click)="signInWithFB()"><span class="fa fa-facebook"></span></button>
+      </div>
+    </div>
+    <!-- If user found displaying user data -->
+    <div *ngIf="user" >
+      <div class="card-block"></div>
+      <img class=" card-img-top img-responsive photo" src="{{ user.photoUrl }}">
+      <div class="card-block">
+        <h4 class="card-title">{{ user.name }}</h4>
+        <p class="card-text">{{ user.email }}</p>
+      </div>
+      <div style="padding-bottom:10px"><button class="btn-outline-primary"  routerLink="/search" style="border-radius:10%">Create Playlist</button> 
+    </div>
+  </div>
